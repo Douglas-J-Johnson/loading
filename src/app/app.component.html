@@ -2,17 +2,24 @@
 
 </banner>
 <mat-tab-group>
-  <mat-tab label="Vehicle">
+  <mat-tab
+    label="Vehicle"
+  >
     <vehicles
       [vehicles]="vehicles"
-      (selectVehicle)="selectVehicle($event)"
+      (toggleVehicleSelection)="toggleVehicleSelection($event)"
+      label="Vehicle"
     >
     </vehicles>
   </mat-tab>
-  <mat-tab label="Products">
+  <mat-tab
+    label="Products"
+  >
     Products
   </mat-tab>
-  <mat-tab label="Pay">
+  <mat-tab
+    label="Pay"
+  >
     Blah
   </mat-tab>
 </mat-tab-group>

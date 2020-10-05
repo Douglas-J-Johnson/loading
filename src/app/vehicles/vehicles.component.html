@@ -5,11 +5,22 @@
     {{ vehicle.plate }}
   </mat-card-subtitle>
   <mat-card-actions>
-    <button
-      mat-raised-button color="primary"
-      (click)="selectMyVehicle(i)"
-    >
-      Select
-    </button>
+    <div *ngIf="vehicle.selected; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <button
+        mat-raised-button color="accent"
+        (click)="toggleMyVehicle(i)"
+      >
+        Deselect
+      </button>
+    </ng-template>
+    <ng-template #elseBlock>
+      <button
+        mat-raised-button color="primary"
+        (click)="toggleMyVehicle(i)"
+      >
+        Select
+      </button>
+    </ng-template>
   </mat-card-actions>
 </mat-card>

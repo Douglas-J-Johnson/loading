@@ -7,10 +7,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class VehiclesComponent {
   @Input() vehicles = [];
-  @Output() selectVehicle = new EventEmitter();
+  @Output() toggleVehicleSelection = new EventEmitter();
 
-  public selectMyVehicle(index): void {
-    console.log('Select', index);
-    this.selectVehicle.emit(index);
+  public toggleMyVehicle(index): void {
+    this.toggleVehicleSelection.emit(index);
   }
 }

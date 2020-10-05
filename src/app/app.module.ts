@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
@@ -29,6 +30,7 @@ import { BannerComponent } from './banner/banner.component';
     MatTabsModule,
     MatCardModule,
     MatButtonModule,
+    MatBadgeModule,
     MatStepperModule,
     MatFormFieldModule,
     FormsModule,
