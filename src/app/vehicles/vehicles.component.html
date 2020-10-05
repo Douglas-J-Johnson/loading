@@ -1,2 +1,15 @@
-<h1>vehicles</h1>
-<p>vehicles works!</p>
+<h1>Select your vehicle below.</h1>
+
+<mat-card *ngFor="let vehicle of vehicles; index as i">
+  <mat-card-subtitle>
+    {{ vehicle.plate }}
+  </mat-card-subtitle>
+  <mat-card-actions>
+    <button
+      mat-raised-button color="primary"
+      (click)="selectMyVehicle(i)"
+    >
+      Select
+    </button>
+  </mat-card-actions>
+</mat-card>
