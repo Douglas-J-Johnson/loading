@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
    <mat-icon>menu</mat-icon>
   </button>
@@ -9,6 +9,7 @@
     <ng-template mat-tab-label>
       <span
         [matBadge]=this.selectedVehiclesCount
+        matBadgeSize='small'
         [matBadgeColor]="(selectedVehiclesCount > 0) ? 'primary' : 'warn'"
       >
         Vehicles
@@ -29,6 +30,7 @@
     <ng-template mat-tab-label>
       <span
         matBadge=0
+        matBadgeSize='small'
         matBadgeColor="primary"
       >
         Products

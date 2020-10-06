@@ -1,21 +1,29 @@
-<div class="header-with-icons">
-  <h2>Products</h2>
-  <div>
-    <button
-      mat-icon-button
-      color="primary"
-      class="product-button"
-      (click)="listProducts()"
-    >
-      <mat-icon>view_list</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      color="primary"
-      class="product-button"
-      (click)="displayProductsMap()"
-    >
-      <mat-icon>map</mat-icon>
-    </button>
-  </div>
-</div>
+<h2>Your Products</h2>
+<mat-divider></mat-divider>
+<h2>Find Products</h2>
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>view_list</mat-icon>
+        Products List
+      </mat-panel-title>
+      <mat-panel-description>
+        Search, filter, sort available products
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <h3>Items</h3>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>pin_drop</mat-icon>
+        Find Location
+      </mat-panel-title>
+      <mat-panel-description>
+        Find product location on site
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <h3>Map</h3>
+  </mat-expansion-panel>
+</mat-accordion>

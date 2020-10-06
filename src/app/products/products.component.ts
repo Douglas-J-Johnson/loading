@@ -7,10 +7,8 @@ import { Component } from '@angular/core';
 })
 export class ProductsComponent {
   public listProducts(): void {
-    console.log('List Products');
   }
 
   public displayProductsMap(): void {
-    console.log('Display Products Map');
   }
 }
