@@ -1,6 +1,9 @@
-<banner>
-
-</banner>
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+   <mat-icon>menu</mat-icon>
+  </button>
+  <span>Loading</span>
+</mat-toolbar>
 <mat-tab-group>
   <mat-tab>
     <ng-template mat-tab-label>
@@ -13,25 +16,29 @@
     </ng-template>
     <vehicles
       [vehicles]="vehicles"
+      [selectedVehicles] = "selectedVehicles"
+      [selectedVehiclesCount]="selectedVehiclesCount"
       (toggleVehicleSelection)="toggleVehicleSelection($event)"
       label="Vehicle"
     >
     </vehicles>
   </mat-tab>
-  <mat-tab>
-  <ng-template mat-tab-label>
-    <span
-      matBadge=0
-      matBadgeColor="primary"
-    >
-      Products
-    </span>
-  </ng-template>
-    Products
+  <mat-tab
+    [disabled]="this.selectedVehiclesCount === 0"
+  >
+    <ng-template mat-tab-label>
+      <span
+        matBadge=0
+        matBadgeColor="primary"
+      >
+        Products
+      </span>
+    </ng-template>
+    <products></products>
   </mat-tab>
   <mat-tab
     label="Pay"
   >
-    Blah
+    <h2>Pay</h2>
   </mat-tab>
 </mat-tab-group>

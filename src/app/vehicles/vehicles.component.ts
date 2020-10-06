@@ -6,7 +6,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./vehicles.component.scss']
 })
 export class VehiclesComponent {
-  @Input() vehicles = [];
+  @Input() vehicles: [];
+  @Input() selectedVehicles: [];
+  @Input() selectedVehiclesCount: number;
   @Output() toggleVehicleSelection = new EventEmitter();
 
   public toggleMyVehicle(index): void {

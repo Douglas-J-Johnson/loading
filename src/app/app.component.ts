@@ -10,37 +10,66 @@ export class AppComponent implements OnInit {
 
   public vehicles = [
     {
-      image: 'https://hondablogitalia.files.wordpress.com/2016/01/2017-honda-ridgeline-006.jpg',
+      id: 0,
       plate: 'XXX XXX',
-      isSelected: true
+      isSelected: false
     },
     {
-      image: 'https://car-images.bauersecure.com/pagefiles/67808/1040x585/hr-001.jpg',
+      id: 1,
       plate: 'YYY YYY',
       isSelected: true
     },
   ];
   public selectedVehiclesCount = 0;
+  public selectedVehicles = [];
 
-  public toggleVehicleSelection(index): void {
-    this.vehicles[index].isSelected = !this.vehicles[index].isSelected;
-    this.setSelectedVehiclesCount();
+  public products = [
+    {
+      id: 0,
+      bay: 15,
+      name: 'item 1',
+    },
+    {
+      id: 1,
+      bay: 20,
+      name: 'item 2',
+    }
+  ];
+  public loadedProducts = [
+    {
+      id: 0,
+      bay: 15,
+      name: 'item 1',
+      weighed: true,
+      weight: 0
+    }
+  ];
+
+  public toggleVehicleSelection(id): void {
+    this.vehicles.forEach(vehicle => {
+      if (vehicle.id === id) {
+        vehicle.isSelected = !vehicle.isSelected;
+      }
+    });
+
+    this.setSelectedVehicles();
   }
 
-  public setSelectedVehiclesCount(): void {
+  public setSelectedVehicles(): void {
     let count = 0;
+    this.selectedVehicles = [];
 
     this.vehicles.forEach(vehicle => {
       if (vehicle.isSelected) {
         count += 1;
+        this.selectedVehicles.push(vehicle);
       }
     });
 
-    console.log('Counting Vehicles...', count);
     this.selectedVehiclesCount = count;
   }
 
   ngOnInit(): void {
-    this.setSelectedVehiclesCount();
+    this.setSelectedVehicles();
   }
 }
