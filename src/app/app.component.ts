@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     {
       image: 'https://car-images.bauersecure.com/pagefiles/67808/1040x585/hr-001.jpg',
       plate: 'YYY YYY',
-      selected: false
+      isSelected: true
     },
   ];
   public selectedVehiclesCount = 0;

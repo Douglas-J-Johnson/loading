@@ -7,10 +7,10 @@
   <mat-card-actions>
     <button
       mat-raised-button
-      [color]="vehicle.isSelected ? 'primary' : 'accent'"
+      [color]="vehicle.isSelected ? 'accent' : 'primary'"
       (click)="toggleMyVehicle(i)"
     >
-      {{ vehicle.isSelected ? 'Select' : 'Deselect' }}
+      {{ vehicle.isSelected ? 'Deselect' : 'Select' }}
     </button>
   </mat-card-actions>
 </mat-card>
