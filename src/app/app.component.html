@@ -2,9 +2,15 @@
 
 </banner>
 <mat-tab-group>
-  <mat-tab
-    label="Vehicle"
-  >
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span
+        [matBadge]=this.selectedVehiclesCount
+        [matBadgeColor]="(selectedVehiclesCount > 0) ? 'primary' : 'warn'"
+      >
+        Vehicles
+      </span>
+    </ng-template>
     <vehicles
       [vehicles]="vehicles"
       (toggleVehicleSelection)="toggleVehicleSelection($event)"
@@ -12,9 +18,15 @@
     >
     </vehicles>
   </mat-tab>
-  <mat-tab
-    label="Products"
-  >
+  <mat-tab>
+  <ng-template mat-tab-label>
+    <span
+      matBadge=0
+      matBadgeColor="primary"
+    >
+      Products
+    </span>
+  </ng-template>
     Products
   </mat-tab>
   <mat-tab
