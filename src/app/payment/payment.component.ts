@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'payment',
@@ -7,13 +7,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-  isLinear = false;
+  isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });

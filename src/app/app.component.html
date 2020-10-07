@@ -24,6 +24,7 @@
     >
     </vehicles>
   </mat-tab>
+
   <mat-tab
     [disabled]="this.selectedVehiclesCount === 0"
   >
@@ -36,11 +37,16 @@
         Products
       </span>
     </ng-template>
-    <products></products>
+    <products
+      [products]="products"
+      [loadedProducts]="loadedProducts"
+    > </products>
   </mat-tab>
+
   <mat-tab
     label="Pay"
   >
     <h2>Pay</h2>
+    <payment></payment>
   </mat-tab>
 </mat-tab-group>

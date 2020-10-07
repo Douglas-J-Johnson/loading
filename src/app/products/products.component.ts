@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'products',
@@ -6,9 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  public listProducts(): void {
-  }
+  @Input() products = [];
+  @Input() loadedProducts = [];
 
-  public displayProductsMap(): void {
-  }
+  public productsColumns = [
+    'name',
+    'location'
+  ];
+  public loadedProductsColumns = [
+    'name',
+    'weighed',
+    'weight'
+  ];
 }

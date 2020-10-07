@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
     {
       id: 0,
       plate: 'XXX XXX',
-      isSelected: false
+      isSelected: true
     },
     {
       id: 1,
@@ -27,86 +27,88 @@ export class AppComponent implements OnInit {
   public products = [
     {
       id: 0,
-      bay: 2,
+      location: 2,
       name: 'item 1',
     },
     {
       id: 1,
-      bay: 3,
+      location: 3,
       name: 'item 2',
     },
     {
       id: 2,
-      bay: 10,
+      location: 10,
       name: 'item 3',
     },
     {
       id: 3,
-      bay: 12,
+      location: 12,
       name: 'item 4',
     },
     {
       id: 4,
-      bay: 15,
+      location: 15,
       name: 'item 5',
     },
     {
       id: 5,
-      bay: 16,
+      location: 16,
       name: 'item 6',
     },
     {
       id: 6,
-      bay: 18,
+      location: 18,
       name: 'item 7',
     },
     {
       id: 7,
-      bay: 20,
+      location: 20,
       name: 'item 8',
     },
     {
       id: 8,
-      bay: 21,
+      location: 21,
       name: 'item 9',
     },
     {
       id: 9,
-      bay: 22,
+      location: 22,
       name: 'item 10',
     },
     {
       id: 10,
-      bay: 24,
+      location: 24,
       name: 'item 11',
     },
     {
       id: 11,
-      bay: 25,
+      location: 25,
       name: 'item 12',
     },
     {
       id: 12,
-      bay: 26,
+      location: 26,
       name: 'item 13',
     }
   ];
   public loadedProducts = [
     {
       id: 0,
-      bay: 15,
+      location: 15,
       name: 'item 1',
       weighed: true,
       weight: 500
     },
     {
       id: 0,
-      bay: 15,
-      name: 'item 1',
+      location: 15,
+      name: 'item 2',
       weighed: false,
       weight: 0
     }
   ];
+  loadedProductsCount = 0;
+  unweighedProductsCount = 0;
 
   constructor(private snackBar: MatSnackBar) {}
 
@@ -121,17 +123,31 @@ export class AppComponent implements OnInit {
   }
 
   public setSelectedVehicles(): void {
-    let count = 0;
+    let selectedCount = 0;
     this.selectedVehicles = [];
 
     this.vehicles.forEach(vehicle => {
       if (vehicle.isSelected) {
-        count += 1;
+        selectedCount += 1;
         this.selectedVehicles.push(vehicle);
       }
     });
 
-    this.selectedVehiclesCount = count;
+    this.selectedVehiclesCount = selectedCount;
+  }
+
+  public setLoadedProducts(): void {
+    let loadedCount = 0;
+    this.selectedVehicles = [];
+
+    this.vehicles.forEach(vehicle => {
+      if (vehicle.isSelected) {
+        loadedCount += 1;
+        this.selectedVehicles.push(vehicle);
+      }
+    });
+
+    this.selectedVehiclesCount = loadedCount;
   }
 
   ngOnInit(): void {
