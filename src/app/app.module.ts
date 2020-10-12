@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -18,12 +21,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { PaymentComponent } from './payment/payment.component';
-import { BannerComponent } from './banner/banner.component';
 import { ProductsComponent } from './products/products.component';
 import { LoadComponent } from './load/load.component';
 
@@ -32,7 +32,6 @@ import { LoadComponent } from './load/load.component';
     AppComponent,
     VehiclesComponent,
     PaymentComponent,
-    BannerComponent,
     ProductsComponent,
     LoadComponent
   ],
@@ -40,6 +39,7 @@ import { LoadComponent } from './load/load.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ScrollingModule,
     MatToolbarModule,
     MatTabsModule,
     MatMenuModule,
