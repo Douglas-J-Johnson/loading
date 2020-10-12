@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,6 +25,7 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
 import { PaymentComponent } from './payment/payment.component';
 import { BannerComponent } from './banner/banner.component';
 import { ProductsComponent } from './products/products.component';
+import { LoadComponent } from './load/load.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { ProductsComponent } from './products/products.component';
     VehiclesComponent,
     PaymentComponent,
     BannerComponent,
-    ProductsComponent
+    ProductsComponent,
+    LoadComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { ProductsComponent } from './products/products.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatTabsModule,
+    MatMenuModule,
     MatExpansionModule,
     MatCardModule,
     MatButtonModule,

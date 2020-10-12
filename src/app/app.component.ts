@@ -9,15 +9,25 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AppComponent implements OnInit {
   title = 'loading';
 
+  tabs = {
+    vehicle: true,
+    products: true,
+    pay: true,
+    load: true,
+    checkout: true
+  }
+
   public vehicles = [
     {
       id: 0,
       plate: 'XXX XXX',
-      isSelected: true
+      image: 'https://hondablogitalia.files.wordpress.com/2016/01/2017-honda-ridgeline-006.jpg',
+      isSelected: false
     },
     {
       id: 1,
       plate: 'YYY YYY',
+      image: 'https://car-images.bauersecure.com/pagefiles/67808/1040x585/hr-001.jpg',
       isSelected: false
     },
   ];
