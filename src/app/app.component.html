@@ -11,48 +11,58 @@
 </mat-toolbar>
 
 <mat-tab-group>
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <span
-        [matBadge]=this.selectedVehiclesCount
-        matBadgeSize='small'
-        [matBadgeColor]="(selectedVehiclesCount > 0) ? 'primary' : 'warn'"
-      >Vehicle</span>
-    </ng-template>
-    <vehicles
-      [vehicles]="vehicles"
-      [selectedVehicles] = "selectedVehicles"
-      [selectedVehiclesCount]="selectedVehiclesCount"
-      (toggleVehicleSelection)="toggleVehicleSelection($event)"
-      label="Vehicle"
-    ></vehicles>
-  </mat-tab>
+  <div *ngIf="this.tabs.vehicle">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span
+          [matBadge]=this.selectedVehiclesCount
+          matBadgeSize='small'
+          [matBadgeColor]="(selectedVehiclesCount > 0) ? 'primary' : 'warn'"
+        >Vehicle</span>
+      </ng-template>
+      <vehicles
+        [vehicles]="vehicles"
+        [selectedVehicles] = "selectedVehicles"
+        [selectedVehiclesCount]="selectedVehiclesCount"
+        (toggleVehicleSelection)="toggleVehicleSelection($event)"
+        label="Vehicle"
+      ></vehicles>
+    </mat-tab>
+  </div>
 
-  <mat-tab [disabled]="this.selectedVehiclesCount === 0">
-    <ng-template mat-tab-label>
-      <span
-        matBadge=0
-        matBadgeSize='small'
-        matBadgeColor="primary"
-      >Products</span>
-    </ng-template>
-    <products
-      [products]="products"
-      [loadedProducts]="loadedProducts"
-    ></products>
-  </mat-tab>
+  <div *ngIf="this.tabs.products">
+    <mat-tab [disabled]="this.selectedVehiclesCount === 0">
+      <ng-template mat-tab-label>
+        <span
+          matBadge=0
+          matBadgeSize='small'
+          matBadgeColor="primary"
+        >Products</span>
+      </ng-template>
+      <products
+        [products]="products"
+        [loadedProducts]="loadedProducts"
+      ></products>
+    </mat-tab>
+  </div>
 
-  <mat-tab
-    label="Pay"
-    [disabled]="(this.loadedProductsCount === 0 || this.unweighedProductsCount > 0)">
-    <payment></payment>
-  </mat-tab>
+  <div *ngIf="this.tabs.pay">
+    <mat-tab
+      label="Pay"
+      [disabled]="(this.loadedProductsCount === 0 || this.unweighedProductsCount > 0)">
+      <payment></payment>
+    </mat-tab>
+  </div>
 
-  <mat-tab label="Load">
-    <load></load>
-  </mat-tab>
+  <div *ngIf="this.tabs.load">
+    <mat-tab label="Load">
+      <load></load>
+    </mat-tab>
+  </div>
 
-  <mat-tab label="Checkout">
-    <h2>Checkout</h2>
-  </mat-tab>
+  <div *ngIf="this.tabs.checkout">
+    <mat-tab label="Checkout">
+      <h2>Checkout</h2>
+    </mat-tab>
+  </div>
 </mat-tab-group>
