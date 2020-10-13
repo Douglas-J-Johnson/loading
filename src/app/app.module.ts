@@ -26,6 +26,7 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ProductsComponent } from './products/products.component';
 import { LoadComponent } from './load/load.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LoadComponent } from './load/load.component';
     VehiclesComponent,
     PaymentComponent,
     ProductsComponent,
-    LoadComponent
+    LoadComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

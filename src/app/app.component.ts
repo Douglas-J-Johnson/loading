@@ -3,9 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { vehiclesList,
         productsList,
         loadedProductsList,
-        customerTabs,
-        loaderTabs,
-        checkoutTabs } from './app-config';
+        roleTabs } from './app-config';
 
 @Component({
   selector: 'root',
@@ -15,7 +13,8 @@ import { vehiclesList,
 export class AppComponent implements OnInit {
   title = 'loading';
 
-  public tabs = customerTabs;
+  public role = 'customer';
+  public tabs = roleTabs[this.role];
 
   public vehicles = vehiclesList;
   public selectedVehiclesCount = 0;
@@ -27,6 +26,11 @@ export class AppComponent implements OnInit {
   unweighedProductsCount = 0;
 
   constructor(private snackBar: MatSnackBar) {}
+
+  public setRole(role): void {
+    this.role = role;
+    this.tabs = roleTabs[role];
+  }
 
   public toggleVehicleSelection(id): void {
     this.vehicles.forEach(vehicle => {

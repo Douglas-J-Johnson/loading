@@ -1,12 +1,12 @@
-<mat-toolbar color="primary">
+<mat-toolbar [color]="(role === 'customer') ? 'primary' : 'accent'">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
    <mat-icon>menu</mat-icon>
   </button>
   <button mat-button [matMenuTriggerFor]="menu">Role</button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>Customer</button>
-    <button mat-menu-item>Load</button>
-    <button mat-menu-item>Checkout</button>
+    <button mat-menu-item (click)="setRole('customer')">Customer</button>
+    <button mat-menu-item (click)="setRole('loader')">Load</button>
+    <button mat-menu-item (click)="setRole('checkout')">Checkout</button>
   </mat-menu>
 </mat-toolbar>
 

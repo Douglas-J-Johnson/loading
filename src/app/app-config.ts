@@ -1,25 +1,25 @@
-export const customerTabs = {
-  vehicle: true,
-  products: true,
-  pay: true,
-  load: false,
-  checkout: false
-};
-
-export const loaderTabs = {
-  vehicle: false,
-  products: false,
-  pay: false,
-  load: true,
-  checkout: false
-};
-
-export const checkoutTabs = {
-  vehicle: false,
-  products: false,
-  pay: false,
-  load: false,
-  checkout: true
+export const roleTabs = {
+  customer: {
+    vehicle: true,
+    products: true,
+    pay: true,
+    load: false,
+    checkout: false
+  },
+  loader: {
+    vehicle: false,
+    products: false,
+    pay: false,
+    load: true,
+    checkout: false
+  },
+  checkout: {
+    vehicle: false,
+    products: false,
+    pay: false,
+    load: false,
+    checkout: true
+  }
 };
 
 export const loadedProductsList = [
