@@ -1,19 +1,19 @@
 export const roleTabs = {
-  customer: {
+  Customer: {
     vehicle: true,
     products: true,
     pay: true,
     load: false,
     checkout: false
   },
-  loader: {
+  Load: {
     vehicle: false,
     products: false,
     pay: false,
     load: true,
     checkout: false
   },
-  checkout: {
+  Checkout: {
     vehicle: false,
     products: false,
     pay: false,
@@ -21,23 +21,6 @@ export const roleTabs = {
     checkout: true
   }
 };
-
-export const loadedProductsList = [
-  {
-    id: 0,
-    location: 15,
-    name: 'item 1',
-    weighed: true,
-    weight: 500
-  },
-  {
-    id: 0,
-    location: 15,
-    name: 'item 2',
-    weighed: false,
-    weight: 0
-  }
-];
 
 export const productsList = [
   {
@@ -112,12 +95,29 @@ export const vehiclesList = [
     id: 0,
     plate: 'XXX XXX',
     image: 'https://hondablogitalia.files.wordpress.com/2016/01/2017-honda-ridgeline-006.jpg',
-    isSelected: false
+    isSelected: true,
+    loadedProducts: [
+      {
+        id: 0,
+        location: 15,
+        name: 'item 1',
+        weighed: true,
+        weight: 500
+      },
+      {
+        id: 1,
+        location: 15,
+        name: 'item 2',
+        weighed: true,
+        weight: 250
+      }
+    ]
   },
   {
     id: 1,
     plate: 'YYY YYY',
     image: 'https://car-images.bauersecure.com/pagefiles/67808/1040x585/hr-001.jpg',
-    isSelected: false
+    isSelected: false,
+    loadedProducts: []
   },
 ];

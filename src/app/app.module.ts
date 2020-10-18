@@ -25,7 +25,6 @@ import { AppComponent } from './app.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ProductsComponent } from './products/products.component';
-import { LoadComponent } from './load/load.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { CheckoutComponent } from './checkout/checkout.component';
     VehiclesComponent,
     PaymentComponent,
     ProductsComponent,
-    LoadComponent,
     CheckoutComponent
   ],
   imports: [

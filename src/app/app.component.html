@@ -1,13 +1,16 @@
-<mat-toolbar [color]="(role === 'customer') ? 'primary' : 'accent'">
+<mat-toolbar [color]="(role === 'Customer') ? 'primary' : 'accent'">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
    <mat-icon>menu</mat-icon>
   </button>
-  <button mat-button [matMenuTriggerFor]="menu">Role</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="setRole('customer')">Customer</button>
-    <button mat-menu-item (click)="setRole('loader')">Load</button>
-    <button mat-menu-item (click)="setRole('checkout')">Checkout</button>
-  </mat-menu>
+  <div>
+    <span>Role</span>
+    <button mat-button [matMenuTriggerFor]="roleMenu">{{this.role}}</button>
+    <mat-menu #roleMenu="matMenu">
+      <button mat-menu-item (click)="setRole('Customer')">Customer</button>
+      <button mat-menu-item (click)="setRole('Load')">Load</button>
+      <button mat-menu-item (click)="setRole('Checkout')">Checkout</button>
+    </mat-menu>
+  </div>
 </mat-toolbar>
 
 <mat-tab-group>
@@ -15,18 +18,20 @@
     <mat-tab>
       <ng-template mat-tab-label>
         <span
-          [matBadge]=this.selectedVehiclesCount
+          [matBadge]="selectedVehiclesCount"
           matBadgeSize='small'
           [matBadgeColor]="(selectedVehiclesCount > 0) ? 'primary' : 'warn'"
         >Vehicle</span>
       </ng-template>
-      <vehicles
-        [vehicles]="vehicles"
-        [selectedVehicles] = "selectedVehicles"
-        [selectedVehiclesCount]="selectedVehiclesCount"
-        (toggleVehicleSelection)="toggleVehicleSelection($event)"
-        label="Vehicle"
-      ></vehicles>
+      <div class="tab-container">
+        <vehicles
+          [vehicles]="vehicles"
+          [selectedVehicles] = "selectedVehicles"
+          [selectedVehiclesCount]="selectedVehiclesCount"
+          (toggleVehicleSelection)="toggleVehicleSelection($event)"
+          label="Vehicle"
+        ></vehicles>
+      </div>
     </mat-tab>
   </div>
 
@@ -34,15 +39,17 @@
     <mat-tab [disabled]="this.selectedVehiclesCount === 0">
       <ng-template mat-tab-label>
         <span
-          matBadge=0
+          [matBadge]="loadedProductsCount"
           matBadgeSize='small'
-          matBadgeColor="primary"
+          [matBadgeColor]="(loadedProductsCount > 0) ? 'primary' : 'disabled'"
         >Products</span>
       </ng-template>
-      <products
-        [products]="products"
-        [loadedProducts]="loadedProducts"
-      ></products>
+      <div class="tab-container">
+        <products
+          [products]="products"
+          [loadedProducts]="loadedProducts"
+        ></products>
+      </div>
     </mat-tab>
   </div>
 
@@ -56,7 +63,47 @@
 
   <div *ngIf="this.tabs.load">
     <mat-tab label="Load">
-      <load></load>
+      <mat-accordion multi>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon class="accordian-icon">view_list</mat-icon>
+              Product List
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <table mat-table [dataSource]="products">
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="location">
+              <th mat-header-cell *matHeaderCellDef> Location </th>
+              <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="productsColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: productsColumns;"></tr>
+          </table>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon class="accordian-icon">local_shipping</mat-icon>
+              Vehicle
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <vehicles
+            [vehicles]="vehicles"
+            [selectedVehicles] = "selectedVehicles"
+            [selectedVehiclesCount]="selectedVehiclesCount"
+            (toggleVehicleSelection)="toggleVehicleSelection($event)"
+            label="Vehicle"
+          ></vehicles>
+        </mat-expansion-panel>
+
+      </mat-accordion>
     </mat-tab>
   </div>
 

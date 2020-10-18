@@ -3,10 +3,19 @@
 <ng-template #noVehicleSelected>
   <h2>Select your vehicle below.</h2>
   <mat-card *ngFor="let vehicle of vehicles">
-    <mat-card-subtitle>
-      {{ vehicle.plate }}
-    </mat-card-subtitle>
-    <img mat-card-image [src]="vehicle.image" alt="Picture of Vehicle">
+    <mat-card-header>
+      <img
+        mat-card-avatar
+        class="vehicle-image"
+        [src]="vehicle.image"
+        alt="Picture of Vehicle">
+      <mat-card-subtitle>{{ vehicle.plate }}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      class="vehicle-image"
+      [src]="vehicle.image"
+      alt="Picture of Vehicle">
     <mat-card-actions>
       <button
         mat-raised-button
@@ -19,13 +28,22 @@
   </mat-card>
 </ng-template>
 
-<ng-template #vechicleSelected>
+<ng-template class="vehicles" #vechicleSelected>
   <h2>{{ selectedVehiclesCount === 1 ? 'Your Vehicle' : 'Your Vehicles' }}</h2>
   <mat-card *ngFor="let vehicle of selectedVehicles">
-    <mat-card-subtitle>
-      {{ vehicle.plate }}
-    </mat-card-subtitle>
-    <img mat-card-image [src]="vehicle.image" alt="Picture of Vehicle">
+    <mat-card-header>
+      <img
+        mat-card-avatar
+        class="vehicle-image"
+        [src]="vehicle.image"
+        alt="Picture of Vehicle">
+      <mat-card-subtitle>{{ vehicle.plate }}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      class="vehicle-image"
+      [src]="vehicle.image"
+      alt="Picture of Vehicle">
     <mat-card-actions>
       <button
         mat-raised-button
