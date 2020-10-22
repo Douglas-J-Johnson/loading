@@ -18,4 +18,8 @@ export class ProductsComponent {
     'weighed',
     'weight'
   ];
+
+  public loadedProductsCount(): number {
+    return this.loadedProducts.length;
+  }
 }

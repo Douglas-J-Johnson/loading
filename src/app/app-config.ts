@@ -16,7 +16,7 @@ export const roleTabs = {
   Checkout: {
     vehicle: false,
     products: false,
-    pay: false,
+    pay: true,
     load: false,
     checkout: true
   }

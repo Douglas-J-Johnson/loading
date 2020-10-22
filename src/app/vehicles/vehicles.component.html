@@ -1,14 +1,14 @@
 <div *ngIf="selectedVehiclesCount === 0; then noVehicleSelected else vechicleSelected"></div>
 
 <ng-template #noVehicleSelected>
-  <h2>Select your vehicle below.</h2>
-  <mat-card *ngFor="let vehicle of vehicles">
+  <h2>Select vehicle below.</h2>
+  <mat-card class="vehicle-card" *ngFor="let vehicle of vehicles">
     <mat-card-header>
-      <img
+      <!-- <img
         mat-card-avatar
         class="vehicle-image"
         [src]="vehicle.image"
-        alt="Picture of Vehicle">
+        alt="Picture of Vehicle"> -->
       <mat-card-subtitle>{{ vehicle.plate }}</mat-card-subtitle>
     </mat-card-header>
     <img
@@ -29,14 +29,14 @@
 </ng-template>
 
 <ng-template class="vehicles" #vechicleSelected>
-  <h2>{{ selectedVehiclesCount === 1 ? 'Your Vehicle' : 'Your Vehicles' }}</h2>
-  <mat-card *ngFor="let vehicle of selectedVehicles">
+  <h2>{{ selectedVehiclesCount === 1 ? 'Selected vehicle' : 'Selected vehicles' }}</h2>
+  <mat-card class="vehicle-card" *ngFor="let vehicle of selectedVehicles">
     <mat-card-header>
-      <img
+      <!-- <img
         mat-card-avatar
         class="vehicle-image"
         [src]="vehicle.image"
-        alt="Picture of Vehicle">
+        alt="Picture of Vehicle"> -->
       <mat-card-subtitle>{{ vehicle.plate }}</mat-card-subtitle>
     </mat-card-header>
     <img

@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     'name',
     'location'
   ];
-  public loadedProducts = {};
+  public loadedProducts = [];
   loadedProductsCount = 0;
   unweighedProductsCount = 0;
 
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
     let loadedCount = 0;
 
     this.selectedVehicles = [];
-    this.loadedProducts = {};
+    this.loadedProducts = [];
 
     this.vehicles.forEach(vehicle => {
       if (vehicle.isSelected) {
@@ -61,6 +61,7 @@ export class AppComponent implements OnInit {
         loadedCount += vehicle.loadedProducts.length;
 
         vehicle.loadedProducts.forEach(loadedProduct => {
+          this.loadedProducts.push(loadedProduct);
           if (!loadedProduct.weighed) {
             unweighedCount += 1;
           }
@@ -71,10 +72,6 @@ export class AppComponent implements OnInit {
     this.selectedVehiclesCount = selectedCount;
     this.unweighedProductsCount = unweighedCount;
     this.loadedProductsCount = loadedCount;
-
-    console.log('Selected Vehicle Count', this.selectedVehiclesCount);
-    console.log('Unweighed Products Count', this.unweighedProductsCount);
-    console.log('Loaded Products Count', this.loadedProductsCount);
   }
 
   ngOnInit(): void {
