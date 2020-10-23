@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
   public products = productsList;
   public productsColumns = [
     'name',
-    'location'
+    'location',
+    'select'
   ];
   public loadedProducts = [];
   loadedProductsCount = 0;
