@@ -2,56 +2,60 @@
 
 <ng-template #noVehicleSelected>
   <h2>Select vehicle below.</h2>
-  <mat-card class="vehicle-card" *ngFor="let vehicle of vehicles">
-    <mat-card-header>
-      <!-- <img
-        mat-card-avatar
+  <div class="vehicles-container">
+    <mat-card class="vehicle-card" *ngFor="let vehicle of vehicles">
+      <mat-card-header>
+        <!-- <img
+          mat-card-avatar
+          class="vehicle-image"
+          [src]="vehicle.image"
+          alt="Picture of Vehicle"> -->
+        <mat-card-subtitle>{{ vehicle.plate }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        mat-card-image
         class="vehicle-image"
         [src]="vehicle.image"
-        alt="Picture of Vehicle"> -->
-      <mat-card-subtitle>{{ vehicle.plate }}</mat-card-subtitle>
-    </mat-card-header>
-    <img
-      mat-card-image
-      class="vehicle-image"
-      [src]="vehicle.image"
-      alt="Picture of Vehicle">
-    <mat-card-actions>
-      <button
-        mat-raised-button
-        [color]="vehicle[idAttribute] === userID ? 'accent' : 'primary'"
-        (click)="toggleVehicle(vehicle.id)"
-      >
-        {{ vehicle[idAttribute] === userID ? 'Remove' : 'Select' }}
-      </button>
-    </mat-card-actions>
-  </mat-card>
+        alt="Picture of Vehicle">
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          [color]="vehicle[idAttribute] === userID ? 'accent' : 'primary'"
+          (click)="toggleVehicle(vehicle.id)"
+        >
+          {{ vehicle[idAttribute] === userID ? 'Remove' : 'Select' }}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </ng-template>
 
-<ng-template class="vehicles" #vechicleSelected>
+<ng-template #vechicleSelected>
   <h2>{{ selectedVehiclesCount === 1 ? 'Selected vehicle' : 'Selected vehicles' }}</h2>
-  <mat-card class="vehicle-card" *ngFor="let vehicle of selectedVehicles">
-    <mat-card-header>
-      <!-- <img
-        mat-card-avatar
+  <div class="vehicles-container">
+    <mat-card class="vehicle-card" *ngFor="let vehicle of selectedVehicles">
+      <mat-card-header>
+        <!-- <img
+          mat-card-avatar
+          class="vehicle-image"
+          [src]="vehicle.image"
+          alt="Picture of Vehicle"> -->
+        <mat-card-subtitle>{{ vehicle.plate }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        mat-card-image
         class="vehicle-image"
         [src]="vehicle.image"
-        alt="Picture of Vehicle"> -->
-      <mat-card-subtitle>{{ vehicle.plate }}</mat-card-subtitle>
-    </mat-card-header>
-    <img
-      mat-card-image
-      class="vehicle-image"
-      [src]="vehicle.image"
-      alt="Picture of Vehicle">
-    <mat-card-actions>
-      <button
-        mat-raised-button
-        [color]="vehicle[idAttribute] === userID ? 'accent' : 'primary'"
-        (click)="toggleVehicle(vehicle.id)"
-      >
-        {{ vehicle[idAttribute] === userID ? 'Remove' : 'Select' }}
-      </button>
-    </mat-card-actions>
-  </mat-card>
+        alt="Picture of Vehicle">
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          [color]="vehicle[idAttribute] === userID ? 'accent' : 'primary'"
+          (click)="toggleVehicle(vehicle.id)"
+        >
+          {{ vehicle[idAttribute] === userID ? 'Remove' : 'Select' }}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </ng-template>

@@ -72,6 +72,7 @@ export class AppComponent implements OnInit {
 
   public selectLoaderProduct(id): void {
     let loadedCount = 0;
+    this.loaderProductCount = 0;
     this.loaderProduct = [];
 
     productsList.forEach(product => {
@@ -83,6 +84,7 @@ export class AppComponent implements OnInit {
 
     this.loaderProductCount = loadedCount;
     console.log(this.loaderProduct);
+    console.log(this.loaderProductCount);
   }
 
   public setCustomerVehicles(): void {
@@ -116,6 +118,7 @@ export class AppComponent implements OnInit {
 
   public setLoaderVehicle(): void {
     let selectedCount = 0;
+    this.loaderVehicleCount = 0;
     this.loaderVehicle = [];
 
     this.vehicles.forEach(vehicle => {

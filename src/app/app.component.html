@@ -78,7 +78,25 @@
       <div class="tab-container">
         <mat-accordion multi>
 
-          <mat-expansion-panel>
+          <mat-expansion-panel expanded='true'>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon class="accordian-icon">local_shipping</mat-icon>
+                Vehicle
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <vehicles
+              [vehicles]="vehicles"
+              [selectedVehicles]="loaderVehicle"
+              [selectedVehiclesCount]="loaderVehicleCount"
+              [userID]="loaderID"
+              idAttribute='loaderID'
+              (toggleVehicleSelection)="toggleloaderVehicle($event)"
+              label="Vehicle"
+            ></vehicles>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel expanded='true'>
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <mat-icon class="accordian-icon">view_list</mat-icon>
@@ -109,24 +127,6 @@
               <tr mat-header-row *matHeaderRowDef="productsColumns"></tr>
               <tr mat-row *matRowDef="let row; columns: productsColumns;"></tr>
             </table>
-          </mat-expansion-panel>
-
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <mat-icon class="accordian-icon">local_shipping</mat-icon>
-                Vehicle
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <vehicles
-              [vehicles]="vehicles"
-              [selectedVehicles]="loaderVehicle"
-              [selectedVehiclesCount]="loaderVehicleCount"
-              [userID]="loaderID"
-              idAttribute='loaderID'
-              (toggleVehicleSelection)="toggleloaderVehicle($event)"
-              label="Vehicle"
-            ></vehicles>
           </mat-expansion-panel>
 
         </mat-accordion>

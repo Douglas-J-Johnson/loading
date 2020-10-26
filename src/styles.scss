@@ -8,6 +8,14 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.vehicles-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
 .vehicle-card {
-  margin-top: 0.5rem;
+  width: 80%;
+  flex: 0 0 auto;
+  margin: 1rem;
 }
