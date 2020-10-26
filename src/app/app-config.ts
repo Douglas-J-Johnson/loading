@@ -1,19 +1,19 @@
 export const roleTabs = {
-  Customer: {
+  customer: {
     vehicle: true,
     products: true,
     pay: true,
     load: false,
     checkout: false
   },
-  Load: {
+  load: {
     vehicle: false,
     products: false,
     pay: false,
     load: true,
     checkout: false
   },
-  Checkout: {
+  checkout: {
     vehicle: false,
     products: false,
     pay: true,
@@ -95,7 +95,8 @@ export const vehiclesList = [
     id: 0,
     plate: 'XXX XXX',
     image: 'https://hondablogitalia.files.wordpress.com/2016/01/2017-honda-ridgeline-006.jpg',
-    isSelected: true,
+    customerID: 0,
+    loaderID: 0,
     loadedProducts: [
       {
         id: 0,
@@ -117,7 +118,8 @@ export const vehiclesList = [
     id: 1,
     plate: 'YYY YYY',
     image: 'https://car-images.bauersecure.com/pagefiles/67808/1040x585/hr-001.jpg',
-    isSelected: false,
+    customerID: 0,
+    loaderID: 0,
     loadedProducts: []
   },
 ];

@@ -20,7 +20,7 @@
       <button
         mat-raised-button
         [color]="vehicle.isSelected ? 'accent' : 'primary'"
-        (click)="toggleMyVehicle(vehicle.id)"
+        (click)="toggleVehicle(vehicle.id)"
       >
         {{ vehicle.isSelected ? 'Remove' : 'Select' }}
       </button>
@@ -48,7 +48,7 @@
       <button
         mat-raised-button
         [color]="vehicle.isSelected ? 'accent' : 'primary'"
-        (click)="toggleMyVehicle(vehicle.id)"
+        (click)="toggleVehicle(vehicle.id)"
       >
         {{ vehicle.isSelected ? 'Remove' : 'Select' }}
       </button>

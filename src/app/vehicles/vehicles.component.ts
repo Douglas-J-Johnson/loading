@@ -13,7 +13,7 @@ export class VehiclesComponent {
   @Input() selectedVehiclesCount: number;
   @Output() toggleVehicleSelection = new EventEmitter();
 
-  public toggleMyVehicle(index): void {
+  public toggleVehicle(index): void {
     this.toggleVehicleSelection.emit(index);
   }
 }
