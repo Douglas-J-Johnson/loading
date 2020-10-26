@@ -10,28 +10,26 @@ import { vehiclesList,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'loader';
-
   public customerID = 1;
   public loaderID = 1;
-  public role = 'load';
+  public role = 'Customer';
   public tabs = roleTabs[this.role];
-
   public vehicles = vehiclesList;
-  public customerVehicles = [];
-  public customerVehiclesCount = 0;
-  public loaderVehicle = [];
-  public loaderVehicleCount = 0;
-
   public products = productsList;
   public productsColumns = [
     'name',
     'location',
     'select'
   ];
-  public loadedProducts = [];
-  public loadedProductsCount = 0;
-  public unweighedProductsCount = 0;
+
+  public customerVehicles = [];
+  public customerVehiclesCount = 0;
+  public customerProducts = [];
+  public customerProductsCount = 0;
+  public customerUnweighedProductsCount = 0;
+
+  public loaderVehicle = [];
+  public loaderVehicleCount = 0;
   public loaderProduct = [];
   public loaderProductCount = 0;
 
@@ -69,7 +67,7 @@ export class AppComponent implements OnInit {
       }
     });
 
-    // this.setLoadingVehicles();
+    this.setLoaderVehicle();
   }
 
   public setCustomerVehicles(): void {
@@ -78,7 +76,7 @@ export class AppComponent implements OnInit {
     let loadedCount = 0;
 
     this.customerVehicles = [];
-    this.loadedProducts = [];
+    this.customerProducts = [];
 
     this.vehicles.forEach(vehicle => {
       if (vehicle.customerID === this.customerID) {
@@ -88,7 +86,7 @@ export class AppComponent implements OnInit {
         loadedCount += vehicle.loadedProducts.length;
 
         vehicle.loadedProducts.forEach(loadedProduct => {
-          this.loadedProducts.push(loadedProduct);
+          this.customerProducts.push(loadedProduct);
           if (!loadedProduct.weighed) {
             unweighedCount += 1;
           }
@@ -97,12 +95,27 @@ export class AppComponent implements OnInit {
     });
 
     this.customerVehiclesCount = selectedCount;
-    this.unweighedProductsCount = unweighedCount;
-    this.loadedProductsCount = loadedCount;
+    this.customerUnweighedProductsCount = unweighedCount;
+    this.customerProductsCount = loadedCount;
+  }
+
+  public setLoaderVehicle(): void {
+    let selectedCount = 0;
+    this.loaderVehicle = [];
+
+    this.vehicles.forEach(vehicle => {
+      if (vehicle.loaderID === this.loaderID) {
+        selectedCount += 1;
+        this.loaderVehicle.push(vehicle);
+      }
+    });
+
+    this.loaderVehicleCount = selectedCount;
   }
 
   ngOnInit(): void {
     this.setCustomerVehicles();
+    this.setLoaderVehicle();
 
     if (this.tabs.vehicle && this.customerVehiclesCount === 0) {
       this.snackBar.open('Select your vehicle to begin.', 'OK', {

@@ -11,6 +11,8 @@ export class VehiclesComponent {
   @Input() vehicles: [];
   @Input() selectedVehicles: [];
   @Input() selectedVehiclesCount: number;
+  @Input() userID: number;
+  @Input() idAttribute: number;
   @Output() toggleVehicleSelection = new EventEmitter();
 
   public toggleVehicle(index): void {

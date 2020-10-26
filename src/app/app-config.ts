@@ -1,19 +1,19 @@
 export const roleTabs = {
-  customer: {
+  Customer: {
     vehicle: true,
     products: true,
     pay: true,
     load: false,
     checkout: false
   },
-  load: {
+  Load: {
     vehicle: false,
     products: false,
     pay: false,
     load: true,
     checkout: false
   },
-  checkout: {
+  Checkout: {
     vehicle: false,
     products: false,
     pay: true,

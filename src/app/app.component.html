@@ -6,9 +6,9 @@
     <span>Role</span>
     <button mat-button [matMenuTriggerFor]="roleMenu">{{this.role}}</button>
     <mat-menu #roleMenu="matMenu">
-      <button mat-menu-item (click)="setRole('customer')">Customer</button>
-      <button mat-menu-item (click)="setRole('load')">Load</button>
-      <button mat-menu-item (click)="setRole('checkout')">Checkout</button>
+      <button mat-menu-item (click)="setRole('Customer')">Customer</button>
+      <button mat-menu-item (click)="setRole('Load')">Load</button>
+      <button mat-menu-item (click)="setRole('Checkout')">Checkout</button>
     </mat-menu>
   </div>
 </mat-toolbar>
@@ -28,6 +28,8 @@
           [vehicles]="vehicles"
           [selectedVehicles]="customerVehicles"
           [selectedVehiclesCount]="customerVehiclesCount"
+          [userID]="customerID"
+          idAttribute='customerID'
           (toggleVehicleSelection)="toggleCustomerVehicle($event)"
           label="Vehicle"
         ></vehicles>
@@ -39,15 +41,15 @@
     <mat-tab [disabled]="this.customerVehiclesCount === 0">
       <ng-template mat-tab-label>
         <span
-          [matBadge]="loadedProductsCount"
+          [matBadge]="customerProductsCount"
           matBadgeSize='small'
-          [matBadgeColor]="(loadedProductsCount > 0) ? 'primary' : 'disabled'"
+          [matBadgeColor]="(customerProductsCount > 0) ? 'primary' : 'disabled'"
         >Products</span>
       </ng-template>
       <div class="tab-container">
         <products
           [products]="products"
-          [loadedProducts]="loadedProducts"
+          [loadedProducts]="customerProducts"
         ></products>
       </div>
     </mat-tab>
@@ -64,7 +66,7 @@
   <div *ngIf="this.tabs.pay">
     <mat-tab
       label="Pay"
-      [disabled]="(this.loadedProductsCount === 0 || this.unweighedProductsCount > 0)">
+      [disabled]="(this.customerProductsCount === 0 || this.customerUnweighedProductsCount > 0)">
       <div class="tab-container">
         <payment></payment>
       </div>
@@ -114,6 +116,8 @@
               [vehicles]="vehicles"
               [selectedVehicles]="loaderVehicle"
               [selectedVehiclesCount]="loaderVehicleCount"
+              [userID]="loaderID"
+              idAttribute='loaderID'
               (toggleVehicleSelection)="toggleloaderVehicle($event)"
               label="Vehicle"
             ></vehicles>

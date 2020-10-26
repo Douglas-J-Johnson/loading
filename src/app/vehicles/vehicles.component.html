@@ -19,10 +19,10 @@
     <mat-card-actions>
       <button
         mat-raised-button
-        [color]="vehicle.isSelected ? 'accent' : 'primary'"
+        [color]="vehicle[idAttribute] === userID ? 'accent' : 'primary'"
         (click)="toggleVehicle(vehicle.id)"
       >
-        {{ vehicle.isSelected ? 'Remove' : 'Select' }}
+        {{ vehicle[idAttribute] === userID ? 'Remove' : 'Select' }}
       </button>
     </mat-card-actions>
   </mat-card>
@@ -47,10 +47,10 @@
     <mat-card-actions>
       <button
         mat-raised-button
-        [color]="vehicle.isSelected ? 'accent' : 'primary'"
+        [color]="vehicle[idAttribute] === userID ? 'accent' : 'primary'"
         (click)="toggleVehicle(vehicle.id)"
       >
-        {{ vehicle.isSelected ? 'Remove' : 'Select' }}
+        {{ vehicle[idAttribute] === userID ? 'Remove' : 'Select' }}
       </button>
     </mat-card-actions>
   </mat-card>
