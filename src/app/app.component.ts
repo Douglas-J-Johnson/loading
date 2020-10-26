@@ -70,6 +70,21 @@ export class AppComponent implements OnInit {
     this.setLoaderVehicle();
   }
 
+  public selectLoaderProduct(id): void {
+    let loadedCount = 0;
+    this.loaderProduct = [];
+
+    productsList.forEach(product => {
+      if (product.id === id) {
+        loadedCount += 1;
+        this.loaderProduct.push(product);
+      }
+    });
+
+    this.loaderProductCount = loadedCount;
+    console.log(this.loaderProduct);
+  }
+
   public setCustomerVehicles(): void {
     let selectedCount = 0;
     let unweighedCount = 0;
