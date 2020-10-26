@@ -1,4 +1,4 @@
-<mat-toolbar [color]="(role === 'Customer') ? 'primary' : 'accent'">
+<mat-toolbar [color]="(role === 'Customer') ? 'primary' : ''">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
    <mat-icon>menu</mat-icon>
   </button>
@@ -78,12 +78,13 @@
       <div class="tab-container">
         <mat-accordion multi>
 
-          <mat-expansion-panel expanded='true'>
+          <mat-expansion-panel [expanded]="loaderVehicleCount !== 1">
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <mat-icon class="accordian-icon">local_shipping</mat-icon>
                 Vehicle
               </mat-panel-title>
+              <mat-panel-description>{{loaderVehicle[0]?.plate}}</mat-panel-description>
             </mat-expansion-panel-header>
             <vehicles
               [vehicles]="vehicles"
@@ -96,40 +97,43 @@
             ></vehicles>
           </mat-expansion-panel>
 
-          <mat-expansion-panel expanded='true'>
+          <mat-expansion-panel [expanded]="loaderProductCount !== 1">
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <mat-icon class="accordian-icon">view_list</mat-icon>
-                Product List
+                Product
               </mat-panel-title>
+              <mat-panel-description>{{loaderProduct[0]?.name}}</mat-panel-description>
             </mat-expansion-panel-header>
-            <table mat-table [dataSource]="products">
-              <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-              </ng-container>
-              <ng-container matColumnDef="location">
-                <th mat-header-cell *matHeaderCellDef> Location </th>
-                <td mat-cell *matCellDef="let element"> {{element.location}} </td>
-              </ng-container>
-              <ng-container matColumnDef="select">
-                <th mat-header-cell *matHeaderCellDef> Select </th>
-                <td mat-cell *matCellDef="let element">
-                  <button
-                    mat-raised-button
-                    id={{element.id}}
-                    color="primary"
-                    (click)="selectLoaderProduct(element.id)">
-                    Select
-                </button>
-                </td>
-              </ng-container>
-              <tr mat-header-row *matHeaderRowDef="productsColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: productsColumns;"></tr>
-            </table>
+            <h2>Select product below.</h2>
+            <div class="products-container">
+              <mat-card
+                class="product-card"
+                (click)="toggleLoaderProduct(product.id)"
+                *ngFor="let product of products">
+                <mat-card-header>
+                  <mat-card-title>{{product.location}}</mat-card-title>
+                  <mat-card-subtitle>{{product.name}}</mat-card-subtitle>
+                </mat-card-header>
+                <!-- <mat-card-actions>
+                  <button mat-raised-button>
+                    Button
+                  </button>
+                </mat-card-actions> -->
+              </mat-card>
+            </div>
           </mat-expansion-panel>
 
         </mat-accordion>
+
+        <button
+          mat-raised-button
+          id="load-button"
+          color='primary'
+          [disabled]="loaderVehicleCount !== 1 || loaderProductCount !== 1"
+        >
+          Load
+        </button>
       </div>
     </mat-tab>
   </div>

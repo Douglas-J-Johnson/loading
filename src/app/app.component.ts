@@ -70,7 +70,7 @@ export class AppComponent implements OnInit {
     this.setLoaderVehicle();
   }
 
-  public selectLoaderProduct(id): void {
+  public toggleLoaderProduct(id): void {
     let loadedCount = 0;
     this.loaderProductCount = 0;
     this.loaderProduct = [];
