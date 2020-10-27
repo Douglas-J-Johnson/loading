@@ -29,6 +29,12 @@ body {
   margin: 0.5rem 1rem 0.5rem 1rem;
 }
 
-#load-button {
+.accordian-icon {
+  margin-top: -2px;
+  margin-right: 0.5rem;
+}
+
+#load-button, #reset-button {
   margin-top: 1rem;
+  margin-right: 0.75rem;
 }

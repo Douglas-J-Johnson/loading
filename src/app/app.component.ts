@@ -83,8 +83,6 @@ export class AppComponent implements OnInit {
     });
 
     this.loaderProductCount = loadedCount;
-    console.log(this.loaderProduct);
-    console.log(this.loaderProductCount);
   }
 
   public setCustomerVehicles(): void {
@@ -129,6 +127,19 @@ export class AppComponent implements OnInit {
     });
 
     this.loaderVehicleCount = selectedCount;
+  }
+
+  public resetLoad(): void {
+    const vehicleIndex = this.vehicles.findIndex(vehicle => vehicle.loaderID === this.loaderID);
+
+    if (vehicleIndex >= 0) {
+      this.vehicles[vehicleIndex].loaderID = 0;
+    }
+
+    this.loaderVehicle = [];
+    this.loaderVehicleCount = 0;
+    this.loaderProduct = [];
+    this.loaderProductCount = 0;
   }
 
   ngOnInit(): void {

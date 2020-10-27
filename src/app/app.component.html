@@ -134,6 +134,15 @@
         >
           Load
         </button>
+        <button
+          mat-raised-button
+          id="reset-button"
+          color='warn'
+          (click)="resetLoad()"
+          [disabled]="loaderVehicleCount <= 0 && loaderProductCount <= 0"
+        >
+          Reset
+        </button>
       </div>
     </mat-tab>
   </div>
